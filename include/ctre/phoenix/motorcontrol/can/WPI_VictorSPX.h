@@ -11,6 +11,10 @@
 #pragma once
 #if (defined(CTR_INCLUDE_WPILIB_CLASSES) || defined(__FRC_ROBORIO__)) && !defined(CTR_EXCLUDE_WPILIB_CLASSES)
 
+#if !defined(POST_WPI_LLVM_MOVE) && defined(__FRC_ROBORIO__) && (__FRC_ROBORIO__ == 2019)
+	#define POST_WPI_LLVM_MOVE
+#endif
+
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wconversion"
 
@@ -20,6 +24,10 @@
 #include "SpeedController.h"
 #include "MotorSafety.h"
 #include "MotorSafetyHelper.h"
+
+#if(defined(POST_WPI_LLVM_MOVE))
+#include <wpi/raw_ostream.h>
+#endif
 
 #pragma GCC diagnostic pop
 
@@ -117,7 +125,11 @@ public:
 
 	void SetSafetyEnabled(bool enabled);
 
+#if(defined(POST_WPI_LLVM_MOVE))
+	void GetDescription(wpi::raw_ostream& desc) const;
+#else
 	void GetDescription(llvm::raw_ostream& desc) const;
+#endif
 
 protected:
 	virtual void InitSendable(frc::SendableBuilder& builder);

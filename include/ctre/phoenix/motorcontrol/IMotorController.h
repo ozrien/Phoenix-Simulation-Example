@@ -68,6 +68,7 @@ public:
 	virtual void EnableVoltageCompensation(bool enable) = 0;
 
 	//------ General Status ----------//
+	virtual bool IsEnabled() = 0;
 	virtual double GetBusVoltage() = 0;
 	virtual double GetMotorOutputPercent() = 0;
 	virtual double GetMotorOutputVoltage() = 0;

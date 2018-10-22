@@ -24,6 +24,7 @@ extern "C"{
 	CCIEXPORT ctre::phoenix::ErrorCode c_MotController_ConfigVoltageCompSaturation(void *handle, double voltage, int timeoutMs);
 	CCIEXPORT ctre::phoenix::ErrorCode c_MotController_ConfigVoltageMeasurementFilter(void *handle, int filterWindowSamples, int timeoutMs);
 	CCIEXPORT void c_MotController_EnableVoltageCompensation(void *handle, bool enable);
+	CCIEXPORT ctre::phoenix::ErrorCode c_MotController_IsEnabled(void *handle, bool *isEnabled);
 	CCIEXPORT ctre::phoenix::ErrorCode c_MotController_GetBusVoltage(void *handle, double *voltage);
 	CCIEXPORT ctre::phoenix::ErrorCode c_MotController_GetMotorOutputPercent(void *handle, double *percentOutput);
 	CCIEXPORT ctre::phoenix::ErrorCode c_MotController_GetOutputCurrent(void *handle, double *current);

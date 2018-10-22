@@ -366,6 +366,7 @@ public:
 			int timeoutMs = 0);
 	virtual void EnableVoltageCompensation(bool enable);
 	//------ General Status ----------//
+	virtual bool IsEnabled();
 	virtual double GetBusVoltage();
 	virtual double GetMotorOutputPercent();
 	virtual double GetMotorOutputVoltage();
